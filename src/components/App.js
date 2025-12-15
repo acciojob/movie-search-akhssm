@@ -7,7 +7,9 @@ const App = () => {
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
 
-  const searchMovies = () => {
+  const searchMovies = (e) => {
+    e.preventDefault();
+
     setError("");
     setMovies([]);
 
@@ -31,34 +33,27 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <input
-        type="text"
-        placeholder="Search Movie"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-
-      <button onClick={searchMovies}>Search</button>
+    <div>
+      <form onSubmit={searchMovies}>
+        <input
+          type="text"
+          placeholder="Search Movie"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button type="submit">Search</button>
+      </form>
 
       {error && <p className="error">{error}</p>}
 
-      <div className="movie-list">
+      <ul>
         {movies.map((movie) => (
-          <div key={movie.imdbID} className="movie-card">
-            <img
-              src={
-                movie.Poster !== "N/A"
-                  ? movie.Poster
-                  : "https://via.placeholder.com/150"
-              }
-              alt={movie.Title}
-            />
-            <h3>{movie.Title}</h3>
+          <li key={movie.imdbID}>
+            <p>{movie.Title}</p>
             <p>{movie.Year}</p>
-          </div>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };
