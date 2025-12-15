@@ -49,6 +49,14 @@ const App = () => {
       <ul>
         {movies.map((movie) => (
           <li key={movie.imdbID}>
+            <img
+              src={
+                movie.Poster !== "N/A"
+                  ? movie.Poster
+                  : "https://via.placeholder.com/150"
+              }
+              alt={movie.Title}
+            />
             <p>{movie.Title}</p>
             <p>{movie.Year}</p>
           </li>
