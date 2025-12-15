@@ -1,1 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+}
 
+.container {
+  padding: 20px;
+}
+
+input {
+  padding: 6px;
+  margin-right: 5px;
+}
+
+button {
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.movie-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.movie-card {
+  width: 150px;
+  margin: 10px;
+  text-align: center;
+}
+
+.movie-card img {
+  width: 100%;
+  height: auto;
+}
